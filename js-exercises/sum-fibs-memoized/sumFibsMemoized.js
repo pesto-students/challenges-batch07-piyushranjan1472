@@ -14,16 +14,17 @@ function sumFibs(num) {
   return sum;
 }
 
-function cacheFunction() {
+// eslint-disable-next-line no-shadow
+function cacheFunction(sumFibs) {
   const cache = {};
-  return (n) => {
+  const result = (n) => {
     if (n in cache) {
       return cache[n];
     }
-    const result = sumFibs(n);
-    cache[n] = result;
-    return result;
+    cache[n] = sumFibs(n);
+    return cache[n];
   };
+  return result;
 }
 
 // console.log(cacheFunction(10));
