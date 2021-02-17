@@ -1,14 +1,4 @@
-const sumEvenArgs = (...args) => {
-  let sumOfEvenNumber = 0;
-  if (args !== null) {
-    args.forEach(i => {
-      if (i % 2 === 0) {
-        sumOfEvenNumber += i;
-      }
-    });
-    return sumOfEvenNumber;
-  }
-  return sumOfEvenNumber;
-};
+const sumEvenArgs = (...args) => args.filter(value => value % 2 === 0)
+  .reduce((preValue, curValue) => preValue + curValue, 0);
 
 export { sumEvenArgs };
